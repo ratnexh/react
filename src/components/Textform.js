@@ -2,13 +2,17 @@ import React, { useState } from 'react';
 export default function Textform(props) {
 
     const handleonClick = () => {
-        let newText = text.toUpperCase()
+        let newText = text.toUpperCase();
         setText(newText);
     }
 
     const handlednClick = () => {
-        let newText = text.toLowerCase()
+        let newText = text.toLowerCase();
         setText(newText);
+    }
+
+    const handleClear = () => {
+        setText("");
     }
 
     const handleupChange = (e) => {
@@ -26,13 +30,15 @@ export default function Textform(props) {
     return (
         <>
             <div className="container">
-                <h2 class="mt-4">Enter text below</h2>
+                <h2 className={`mt-4 text-${props.mode==='dark' ?'light':'dark'}`}>Enter text below</h2>
                 <textarea className="form-control my-3" value={text} id="myText" rows="10" placeholder="Enter text here..." onChange={handleupChange}/>
                 <button className={`btn btn-${props.mode === 'dark' ? 'light':'dark'}`} onClick={handleonClick}>UPPERCASE</button>
                 <button className={`btn btn-${props.mode === 'dark' ? 'light':'dark'} mx-3`} onClick={handlednClick}>lowercase</button>
                 <button className={`btn btn-${props.mode === 'dark' ? 'light':'dark'}`} onClick={handleCopy}>Copy text</button>
-                <h3 className="mt-4">Preview</h3>
+                <button className={`btn btn-${props.mode === 'dark' ? 'light':'dark'} mx-3`} onClick={handleClear}>Reset</button>
+                <h3 className={`mt-4 text-${props.mode==='dark' ?'light':'dark'}`}>Preview</h3>
                 <p>{text}</p>
+                <h6 class="mt-3">{text.split(" ").length} words and {text.length} characters</h6>
             </div>
         </>
     )
