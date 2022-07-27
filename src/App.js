@@ -1,25 +1,22 @@
-import { useState } from 'react'
 import './App.css'
 import Navbar from './components/Navbar'
-import Textform from './components/Textform'
-
+import Home from './components/pages/Home'
+import About from './components/pages/About'
+import Contact from './components/pages/Contact'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 function App() {
-  const [mode, setMode] = useState('light')
-  const toggleMode = () => {
-    if (mode === 'dark') {
-      setMode('light');
-      document.body.style.backgroundColor = 'white';
-    } else {
-      setMode('dark');
-      document.body.style.backgroundColor = 'gray';
-    }
-  }
   return (
     <>
-      <Navbar brandtext="LOGO." mode={mode} toggleMode={toggleMode} />
-      <Textform mode={mode} />
+      <Router>
+        <Navbar brandtext="LOGO."/>
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </Router>
     </>
   )
 }
 
-export default App;
+export default App
