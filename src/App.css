@@ -1,4 +1,17 @@
-.d-grid {
-    grid-template-columns: repeat(4, 324px);
-    place-items: center;
+body {
+  background-color: #004256;
+}
+.d-flex {
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.items {
+  background-color: #fff;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
+  border-radius: 16px;
+  max-width: 412px;
+  padding: 30px 30px 0 30px;
+}
+#ApiImages {
+  width: 100%;
 }
