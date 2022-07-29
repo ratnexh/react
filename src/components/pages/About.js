@@ -5,9 +5,6 @@ function About() {
   }, [])
   const [items, setItems] = useState([])
   const fetchItems = async () => {
-    // const data = await fetch(
-    //   'https://www.googleapis.com/youtube/v3',
-    // )
     const data = await fetch(
       'https://newsapi.org/v2/everything?' +
         'q=Apple&' +
